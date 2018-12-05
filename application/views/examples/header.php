@@ -2,7 +2,7 @@
 $this->load->library('session');
 //echo $_SESSION["accountType"];
 if (!isset($_SESSION["accountType"])) {
-    redirect(base_url() . "login");
+    redirect(base_url() . "main");
 }
 ?>
 <!doctype html>
@@ -76,17 +76,17 @@ if (!isset($_SESSION["accountType"])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
-<!--    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>-->
-<!--    <script type="text/javascript">-->
-<!--        //<![CDATA[-->
-<!--        bkLib.onDomLoaded(function () {-->
-<!--            new nicEditor({fullPanel: true}).panelInstance('txtDetails');-->
-<!--        });-->
-<!--        //]]>-->
-<!--    </script>-->
-<!--    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>-->
-<!--    <script>tinymce.init({ selector:'textarea' });</script>-->
-    <script src="<?= base_url('assets/ckeditor/ckeditor.js')?>"></script>
+    <!--    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>-->
+    <!--    <script type="text/javascript">-->
+    <!--        //<![CDATA[-->
+    <!--        bkLib.onDomLoaded(function () {-->
+    <!--            new nicEditor({fullPanel: true}).panelInstance('txtDetails');-->
+    <!--        });-->
+    <!--        //]]>-->
+    <!--    </script>-->
+    <!--    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>-->
+    <!--    <script>tinymce.init({ selector:'textarea' });</script>-->
+    <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
 </head>
 
 
@@ -107,25 +107,44 @@ if (!isset($_SESSION["accountType"])) {
 
             <ul class="nav">
                 <li>
-                    <a href="<?= base_url('SignIn/logout') ?>">
-                        <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
-                        <p style="color: #E9B500;font-weight: 500"> Sign Out </p>
-                    </a>
+                    <?php
+                    if (!isset($_SESSION["accountType"])) {
+                        ?>
+                        <a href="<?= base_url('SignIn') ?>">
+                            <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
+                            <p style="color: #E9B500;font-weight: 500"> Sign In </p>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="<?= base_url('SignIn/logout') ?>">
+                            <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
+                            <p style="color: #E9B500;font-weight: 500"> Sign Out </p>
+                        </a>
+                        <?php
+                    }
+                    ?>
                 </li>
             </ul>
             <div class="user" style="padding-bottom: 8px;margin-top: 0px"></div>
             <ul class="nav">
+                <li>
+                    <a href="<?= base_url('main') ?>">
+                        <i class="material-icons">home</i>
+                        <p> Home </p>
+                    </a>
+                </li>
 
                 <li
                     <?php
-                    if (basename($_SERVER['PHP_SELF']) == "main") {
+                    if (basename($_SERVER['PHP_SELF']) == "dashboard") {
                         echo "class='active'";
                     }
                     ?>
                 >
-                    <a href="<?= base_url('main') ?>">
+                    <a href="<?= base_url('main/dashboard') ?>">
                         <i class="material-icons">dashboard</i>
-                        <p> Dashboard </p>
+                        <p> About </p>
                     </a>
                 </li>
 
@@ -242,37 +261,43 @@ if (!isset($_SESSION["accountType"])) {
                     </a>
                 </li>
 
-                <li>
-                    <a data-toggle="collapse" href="#notificationExamples">
-                        <i class="material-icons">notifications</i>
-                        <p> Notifications ( 5 )
-                            <b class="caret"></b>
-                        </p>
-                    </a>
+                <?php
+                if (isset($_SESSION["accountType"])) {
+                    ?>
+                    <li>
+                        <a data-toggle="collapse" href="#notificationExamples">
+                            <i class="material-icons">notifications</i>
+                            <p> Notifications ( 5 )
+                                <b class="caret"></b>
+                            </p>
+                        </a>
 
-                    <div class="collapse" id="notificationExamples">
-                        <ul class="nav">
-                            <li>
-                                <a href="tables/regular.html">
-                                    <span class="sidebar-mini"> FA </span>
-                                    <span class="sidebar-normal"> Fill Application </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables/extended.html">
-                                    <span class="sidebar-mini"> EA </span>
-                                    <span class="sidebar-normal"> Edit Application </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables/datatables.net.html">
-                                    <span class="sidebar-mini"> UD </span>
-                                    <span class="sidebar-normal"> Upload Documents </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                        <div class="collapse" id="notificationExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="tables/regular.html">
+                                        <span class="sidebar-mini"> FA </span>
+                                        <span class="sidebar-normal"> Fill Application </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tables/extended.html">
+                                        <span class="sidebar-mini"> EA </span>
+                                        <span class="sidebar-normal"> Edit Application </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tables/datatables.net.html">
+                                        <span class="sidebar-mini"> UD </span>
+                                        <span class="sidebar-normal"> Upload Documents </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -283,10 +308,18 @@ if (!isset($_SESSION["accountType"])) {
         <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
                 <div style="right: 15px;position: absolute;padding-right: 50px;font-weight: bold;top: 20px;color: #352c24;margin-top:0px;background-color: #e9b500;padding:9px;border-radius: 18px;display: inline-block">
-                    Online -
                     <?php
-                    if (isset($_SESSION["username"])) {
-                        echo $_SESSION["username"];
+                    if (!isset($_SESSION["accountType"])) {
+                        ?>
+                        Currently Offline
+                        <?php
+                    } else {
+                        ?>
+                        Online -
+                        <?php
+                        if (isset($_SESSION["username"])) {
+                            echo $_SESSION["username"];
+                        }
                     }
                     ?>
                 </div>
@@ -304,9 +337,9 @@ if (!isset($_SESSION["accountType"])) {
                         <span class="icon-bar"></span>
                     </button>
                     <?php
-                    if (basename($_SERVER['PHP_SELF']) == "main") {
+                    if (basename($_SERVER['PHP_SELF']) == "dashboard") {
                         ?>
-                        <div class="navbar-brand" href="#"> Dashboard</div>
+                        <div class="navbar-brand" href="#"> About</div>
                         <?php
                     }
                     ?>
@@ -321,6 +354,13 @@ if (!isset($_SESSION["accountType"])) {
                     if (basename($_SERVER['PHP_SELF']) == "contact") {
                         ?>
                         <div class="navbar-brand" href="#"> Contact</div>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if (basename($_SERVER['PHP_SELF']) == "vacancy") {
+                        ?>
+                        <div class="navbar-brand" href="#"> Vacany Details</div>
                         <?php
                     }
                     ?>

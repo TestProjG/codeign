@@ -1,7 +1,7 @@
 <?php
 $this->load->library('session');
 if (isset($_SESSION["accountType"])) {
-    redirect(base_url() . "main");
+    redirect(base_url() . "main/dashboard");
 }
 ?>
 

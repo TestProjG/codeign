@@ -57,7 +57,8 @@ $route[''] = 'Welcome';
 
 $route['register'] = 'SignUp';
 $route['login'] = 'SignIn';
-$route['main'] = 'Dashboard';
+$route['main'] = 'Landing';
+$route['main/dashboard'] = 'Dashboard';
 $route['main/contact'] = 'Contact';
 $route['main/applicants'] = 'Applicants';
 $route['main/sar'] = 'Sar';

@@ -42,7 +42,7 @@ class SignIn extends CI_Controller
     {
         $this->load->library('session');
         $this->session->sess_destroy();
-        redirect(base_url() . "login");
+        redirect(base_url() . "main");
     }
 }
 
