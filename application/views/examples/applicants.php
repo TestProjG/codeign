@@ -224,7 +224,7 @@ include "header.php";
                                             <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer;height: 100px"
                                             <td></td>
                                             <td>Referees Report</td>
-                                            <td><textarea class="form-control" id="txtReport" name="txtReport" style="font-size: 16px;height: 120px"></textarea></td>
+                                            <td style="right: 0px"><textarea class="form-control" id="txtReport" name="txtReport" style="font-size: 16px;height: 150px"></textarea></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -270,6 +270,7 @@ include "header.php";
                             comment += fields[i] + '\n';
                         }
                         $('#txtReport').val(comment);
+                        // nicEditors.findEditor( "txtReport" ).setContent( comment );
                     }
                     // error: function () {
                     //     alert("Invalide!");

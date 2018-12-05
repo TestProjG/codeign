@@ -76,6 +76,14 @@ if (!isset($_SESSION["accountType"])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            new nicEditor({fullPanel: true}).panelInstance('txtDetails');
+        });
+        //]]>
+    </script>
 </head>
 
 
@@ -192,12 +200,25 @@ if (!isset($_SESSION["accountType"])) {
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
-                    if ($_SESSION["accountType"] == "Applicant") {
+                    if ($_SESSION["accountType"] == "sar") {
                         ?>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="material-icons">place</i>
-                                <p> Map </p>
+                        <li
+                            <?php
+                            if (basename($_SERVER['PHP_SELF']) == "vacancy") {
+                                echo "class='active'";
+                            }
+                            ?>
+                        >
+                            <a href="
+                            <?php
+                            if ($_SESSION["accountType"] == "sar") {
+                                ?>
+                                <?= base_url('main/vacancy') ?>
+                                <?php
+                            }
+                            ?>">
+                                <i class="material-icons">comment</i>
+                                <p> Vacancy Details </p>
                             </a>
                         </li>
                         <?php

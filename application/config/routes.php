@@ -61,6 +61,7 @@ $route['main'] = 'Dashboard';
 $route['main/contact'] = 'Contact';
 $route['main/applicants'] = 'Applicants';
 $route['main/sar'] = 'Sar';
+$route['main/vacancy'] = 'Vacancy';
 
 //$route['login/login'] = 'SignIn/login';
 //$route['login/logout'] = 'SignIn/logout';
