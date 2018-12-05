@@ -88,12 +88,12 @@ $this->load->library('session');
 
 <body>
 
-<div style="background-color: #eeeeee">
+<div style="">
 
 
 
 
-    <div class="main-panel" style="width: 100%">
+    <div class="main-panel" style="width: 100%;background-color: #f5f5f5">
 
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container">

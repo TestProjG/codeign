@@ -303,7 +303,7 @@ if (!isset($_SESSION["accountType"])) {
     </div>
 
 
-    <div class="main-panel">
+    <div class="main-panel" style="background-color: #f5f5f5">
 
         <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">

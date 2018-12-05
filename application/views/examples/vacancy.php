@@ -9,7 +9,7 @@ if (!empty($_GET["email"])) {
 }
 include "header.php";
 ?>
-    <div class="content" style="background-color: #FAFAFA;margin-top: 0px;padding-top: 50px;">
+    <div class="content" style="margin-top: 0px;padding-top: 50px;">
         <div class="container-fluid">
             <div class="row" style="margin-top: 40px">
                 <div class="col-sm-12">
