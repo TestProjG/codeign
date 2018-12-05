@@ -37,6 +37,13 @@ class User extends CI_Model
         $this->sql = $this->db->query("SELECT title,sid,name FROM staff s,user u where u.email=s.email && s.email=?", array($email));
         return $this->sql->result()[0];
     }
+
+    public function getOperators()
+    {
+        $this->load->database();
+        $this->sql = $this->db->query("SELECT title,s.email,name FROM staff s,user u where u.email=s.email && u.accountType='operator'");
+        return $this->sql->result();
+    }
 }
 
 ?>

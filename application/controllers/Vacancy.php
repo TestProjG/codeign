@@ -10,6 +10,9 @@ class Vacancy extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('examples/vacancy');
+        $this->load->model('User');
+        $data['operators'] = $this->User->getOperators();
+
+        $this->load->view('examples/vacancy', $data);
     }
 }

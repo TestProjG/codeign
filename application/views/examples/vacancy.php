@@ -25,7 +25,15 @@ include "header.php";
                                         Operator
                                     </div>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="operatorId" id="operatorId"></select>
+                                        <select class="form-control" name="operatorEmail" id="operatorEmail">
+                                            <?php
+                                            foreach ($operators as $row) {
+                                                ?>
+                                                <option><?= $row->title.'.'.$row->name.' - ('.$row->email.')' ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -42,28 +50,6 @@ include "header.php";
     </div>
     <script>
         CKEDITOR.replace('txtDetails');
-        // DecoupledEditor
-        //     .create(document.querySelector('#txtDetails'))
-        //     .then(editor = > {
-        //     const toolbarContainer = document.querySelector('#toolbar-container');
-        //
-        // toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-        // } )
-        // .catch(error = > {
-        //     console.error(error);
-        // } )
-        // ;
-
-        // nicEditors.findEditor( "txtDetails" ).setWidth( 100% );
-        // var editor;
-        // function reLoadEditor() {
-        //     editor.removeInstance('txtDetails');
-        //     editor = new nicEditor({fullPanel : false}).panelInstance('txtDetails');
-        // }();
-        //
-        // $(window).resize( function() {
-        //     reLoadEditor();
-        // } );
     </script>
 <?php
 include "footer.php";
