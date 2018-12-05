@@ -102,7 +102,7 @@ $this->load->library('session');
                 <?php
                 if (!isset($_SESSION["accountType"])) {
                     ?>
-                    Click To Login
+                    Offline - Click Here To Login
                     <?php
                 } else {
                     ?>
