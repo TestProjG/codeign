@@ -76,14 +76,17 @@ if (!isset($_SESSION["accountType"])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
-    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        bkLib.onDomLoaded(function () {
-            new nicEditor({fullPanel: true}).panelInstance('txtDetails');
-        });
-        //]]>
-    </script>
+<!--    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        //<![CDATA[-->
+<!--        bkLib.onDomLoaded(function () {-->
+<!--            new nicEditor({fullPanel: true}).panelInstance('txtDetails');-->
+<!--        });-->
+<!--        //]]>-->
+<!--    </script>-->
+<!--    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>-->
+<!--    <script>tinymce.init({ selector:'textarea' });</script>-->
+    <script src="<?= base_url('assets/ckeditor/ckeditor.js')?>"></script>
 </head>
 
 
