@@ -15,10 +15,18 @@ include "header.php";
                                 <h4 class="card-title" style="font-weight: lighter">VACANCY DETAILS</h4>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-content">
+                            <div class="card-content" style="padding-right: 20px">
                                 <div class="row" style="font-weight: bold;font-size: 16px;margin-top: 40px">
                                     <div class="col-12"><textarea name="txtDetails" id="txtDetails"
-                                                           style="width: 100%;height: 300px"></textarea></div>
+                                                                  style="width: 100%"></textarea></div>
+                                </div>
+                                <div class="row" style="margin-top: 60px">
+                                    <div class="col-sm-2" style="font-size: 18px;height: 60px;line-height: 65px">
+                                        Operator
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="operatorId" id="operatorId"></select>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-fill"
@@ -33,7 +41,7 @@ include "header.php";
         </div>
     </div>
     <script>
-        CKEDITOR.replace( 'txtDetails' );
+        CKEDITOR.replace('txtDetails');
         // DecoupledEditor
         //     .create(document.querySelector('#txtDetails'))
         //     .then(editor = > {
