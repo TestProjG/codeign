@@ -3,10 +3,35 @@ $this->load->library('session');
 if ($_SESSION["accountType"] != 'sar') {
     redirect(base_url() . "main");
 }
+$sent = "";
+if (!empty($_GET["email"])) {
+    $sent = $_GET["email"];
+}
 include "header.php";
 ?>
     <div class="content" style="background-color: #FAFAFA;margin-top: 0px;padding-top: 50px;">
         <div class="container-fluid">
+            <div class="row" style="margin-top: 40px">
+                <div class="col-sm-12">
+                    <?php
+                    if ($sent == "success") {
+                        ?>
+                        <div class="alert alert-success"
+                             style="margin-left: 10px;margin-right: 10px;text-align: center;color: #17630a;font-weight: bold">
+                            Email has been sent successfully
+                        </div>
+                        <?php
+                    } else if ($sent == "failed") {
+                        ?>
+                        <div class="alert alert-danger"
+                             style="margin-left: 10px;margin-right: 10px;text-align: center;color: #870c00;font-weight: bold">
+                            Email failed
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
             <div class="row" style="margin-top: 30px">
                 <div class="col-md-12 col-12">
                     <div class="card">
@@ -29,7 +54,7 @@ include "header.php";
                                             <?php
                                             foreach ($operators as $row) {
                                                 ?>
-                                                <option><?= $row->title.'.'.$row->name.' - ('.$row->email.')' ?></option>
+                                                <option><?= $row->title . '.' . $row->name . ' - (' . $row->email . ')' ?></option>
                                                 <?php
                                             }
                                             ?>

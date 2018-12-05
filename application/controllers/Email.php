@@ -38,10 +38,12 @@ class Email extends CI_Controller
         $this->email->message($this->input->post('txtDetails'));
 
         //Send mail
-        if ($this->email->send())
+        if ($this->email->send()) {
             $this->session->set_flashdata("email_sent", "Email sent successfully.");
-        else
+            redirect(base_url() . "main/vacancy?email=success");
+        }else {
             $this->session->set_flashdata("email_sent", "Error in sending Email.");
-        $this->load->view('examples/applicants');
+            redirect(base_url() . "main/vacancy?email=failed");
+        }
     }
 }
