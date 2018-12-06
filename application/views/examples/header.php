@@ -248,18 +248,7 @@ if (!isset($_SESSION["accountType"])) {
                 }
                 ?>
 
-                <li
-                    <?php
-                    if (basename($_SERVER['PHP_SELF']) == "contact") {
-                        echo "class='active'";
-                    }
-                    ?>
-                >
-                    <a href="<?= base_url('main/contact') ?>">
-                        <i class="material-icons">call</i>
-                        <p> Contact </p>
-                    </a>
-                </li>
+
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
