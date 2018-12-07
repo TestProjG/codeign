@@ -45,7 +45,8 @@ $this->load->library('session');
             <div style="padding-top: 60px">University of Colombo School of Computing</div>
             <div style="padding-top: 50px">Academic Staff Recruitment</div>
         </div>
-        <div class="row" style="background-color: white;border: 2px solid #7a4d01;margin: 50px">
+        <div class="row" style="background-color: white;border: 2px solid #7a4d01;margin: 50px;padding: 10px">
+            <div style="text-align: center;font-size: 30px;color: green;font-weight: bold;padding-bottom: 60px;text-decoration: underline">ADVERTISEMENT</div>
             <?php
             foreach ($advertisement as $row)
                 echo $row->message;

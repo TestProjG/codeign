@@ -26,7 +26,7 @@ include "header.php";
             </div>
         </div>
         <form method="post" action="<?= base_url('Advertisement_Sar/confirmAdvertisement') ?>">
-            <div class="row" style="background-color: white;border: 2px solid #7a4d01">
+            <div class="row" style="background-color: white;border: 2px solid #7a4d01;padding: 10px">
                 <?php
                 foreach ($advertisement as $row)
                     echo $row->message;
