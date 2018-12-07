@@ -35,7 +35,7 @@ $this->load->library('session');
 
 <header class="masthead">
     <div class="container">
-        <div class="intro-text" style="font-weight: 400;font-size: 45px;padding-top: 200px;padding-bottom: 200px">
+        <div class="intro-text" style="font-weight: 400;font-size: 45px;padding-top: 200px;padding-bottom: 300px">
             <div>University of Colombo School of Computing</div>
             <div style="padding-top: 10px">Academic Staff Recruitment</div>
             <a href="<?= base_url('login') ?>" style="color: inherit">
@@ -56,6 +56,17 @@ $this->load->library('session');
                     ?>
                 </div>
             </a>
+            <?php
+            if (isset($_SESSION["accountType"])) {
+                ?>
+                <div class="row">
+                    <div class="col-sm-12" style="font-size: 14px;font-weight: 100;padding-top: 10px">
+                        (Click to continue)
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
             <!--            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>-->
         </div>
     </div>
@@ -94,8 +105,23 @@ $this->load->library('session');
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
                 <h4 class="service-heading">Applicant Login</h4>
-                <p class="text-muted">Keep a track of data for respective applicants.</p>
+                <p class="text-muted">Keep a track of data of respective applicants.</p>
             </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="padding-top: 80px;cursor: pointer">
+                <div>
+                    <a href="<?= base_url('main/advertisement') ?>" style="color: inherit;text-decoration: none;" target="_blank">
+                    <span class="fa-stack fa-4x">
+                      <i class="fas fa-circle fa-stack-2x" style="color: #cb941e"></i>
+                      <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+                    </span>
+                        <h4 class="service-heading">Advertisement</h4>
+                        <p class="text-muted">Click here to view advertisements.</p>
+                    </a>
+                </div>
+            </div>
+            </a>
+            <div class="col-md-4"></div>
         </div>
     </div>
 </section>

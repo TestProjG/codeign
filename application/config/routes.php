@@ -63,6 +63,8 @@ $route['main/contact'] = 'Contact';
 $route['main/applicants'] = 'Applicants';
 $route['main/sar'] = 'Sar';
 $route['main/vacancy'] = 'Vacancy';
+$route['main/advertisement'] = 'Advertisement';
+$route['main/advertisement_sar'] = 'Advertisement_Sar';
 
 //$route['login/login'] = 'SignIn/login';
 //$route['login/logout'] = 'SignIn/logout';

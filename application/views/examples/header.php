@@ -252,39 +252,74 @@ if (!isset($_SESSION["accountType"])) {
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
-                    ?>
-                    <li>
-                        <a data-toggle="collapse" href="#notificationExamples">
-                            <i class="material-icons">notifications</i>
-                            <p> Notifications ( 5 )
-                                <b class="caret"></b>
-                            </p>
-                        </a>
+                    if ($_SESSION["accountType"] == "interview_panel") {
+                        ?>
+                        <li>
+                            <a data-toggle="collapse" href="#notificationExamples">
+                                <i class="material-icons">notifications</i>
+                                <p> Notifications
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
 
-                        <div class="collapse" id="notificationExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="tables/regular.html">
-                                        <span class="sidebar-mini"> FA </span>
-                                        <span class="sidebar-normal"> Fill Application </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tables/extended.html">
-                                        <span class="sidebar-mini"> EA </span>
-                                        <span class="sidebar-normal"> Edit Application </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tables/datatables.net.html">
-                                        <span class="sidebar-mini"> UD </span>
-                                        <span class="sidebar-normal"> Upload Documents </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <?php
+                            <div class="collapse" id="notificationExamples">
+                                <ul class="nav">
+                                    <li
+                                        <?php
+                                        if (basename($_SERVER['PHP_SELF']) == "advertisement-sar") {
+                                            echo "class='active'";
+                                        }
+                                        ?>
+                                    >
+                                        <a href="<?= base_url('main/advertisement-sar') ?>">
+                                            <span class="sidebar-mini"> AD </span>
+                                            <span class="sidebar-normal"> Advertisement </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+
+                <?php
+                if (isset($_SESSION["accountType"])) {
+                    if ($_SESSION["accountType"] == "sar") {
+                        ?>
+                        <li>
+                            <a data-toggle="collapse" href="#notificationExamples">
+                                <i class="material-icons">notifications</i>
+                                <p> Notifications
+                                    <?php
+                                    if (isset($_SESSION["notify_count"])) {
+                                        echo '(' . $_SESSION["notify_count"] . ')';
+                                    }
+                                    ?>
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+
+                            <div class="collapse" id="notificationExamples">
+                                <ul class="nav">
+                                    <li
+                                        <?php
+                                        if (basename($_SERVER['PHP_SELF']) == "advertisement_sar") {
+                                            echo "class='active'";
+                                        }
+                                        ?>
+                                    >
+                                        <a href="<?= base_url('main/advertisement_sar') ?>">
+                                            <span class="sidebar-mini"> AD </span>
+                                            <span class="sidebar-normal"> Advertisement </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php
+                    }
                 }
                 ?>
             </ul>
@@ -350,6 +385,13 @@ if (!isset($_SESSION["accountType"])) {
                     if (basename($_SERVER['PHP_SELF']) == "vacancy") {
                         ?>
                         <div class="navbar-brand" href="#"> Vacany Details</div>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if (basename($_SERVER['PHP_SELF']) == "advertisement_sar") {
+                        ?>
+                        <div class="navbar-brand" href="#"> Advertisement</div>
                         <?php
                     }
                     ?>

@@ -75,6 +75,24 @@ include "header.php";
     </div>
     <script>
         CKEDITOR.replace('txtDetails');
+        CKEDITOR.plugins.registered['save']=
+            {
+                init : function( editor )
+                {
+                    var command = editor.addCommand( 'save',
+                        {
+                            modes : { wysiwyg:1, source:1 },
+                            exec : function( editor ) {
+                                var fo=editor.element.$.form;
+                                editor.updateElement();
+                                // rxsubmit(fo);
+                                console.log($('#txtDetails').val())
+                            }
+                        }
+                    );
+                    editor.ui.addButton( 'Save',{label : 'My Save',command : 'save'});
+                }
+            }
     </script>
 <?php
 include "footer.php";

@@ -24,11 +24,13 @@ class SignIn extends CI_Controller
             $this->load->library('session');
             foreach ($data['user_data'] as $row) {
                 if ($row->password == md5($this->User->getPassword())) {
-                    $interviewer = $this->User->getInterviewer();
+                    $staff = $this->User->getStaff();
+                    $notify = $this->User->getNotificationCount();
                     $data = array(
-                        'id' => $interviewer->sid,
-                        'username' => $interviewer->title . '.' . $interviewer->name,
-                        'accountType' => $row->accountType);
+                        'id' => $staff->sid,
+                        'username' => $staff->title . '.' . $staff->name,
+                        'accountType' => $row->accountType,
+                        'notify_count' => $notify->notified);
                     $this->session->set_userdata($data);
                     redirect(base_url() . "main");
                 } else {

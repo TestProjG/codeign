@@ -30,7 +30,7 @@ class User extends CI_Model
         return $this->password;
     }
 
-    public function getInterviewer()
+    public function getStaff()
     {
         $email = $this->input->post('email');
         $this->load->database();
@@ -43,6 +43,12 @@ class User extends CI_Model
         $this->load->database();
         $this->sql = $this->db->query("SELECT title,s.email,name FROM staff s,user u where u.email=s.email && u.accountType='operator'");
         return $this->sql->result();
+    }
+
+    public function getNotificationCount(){
+        $this->load->database();
+        $this->sql = $this->db->query("SELECT notified from advertisement where adid=1");
+        return $this->sql->result()[0];
     }
 }
 
